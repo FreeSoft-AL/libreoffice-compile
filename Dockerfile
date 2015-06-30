@@ -9,7 +9,7 @@ RUN apt-get -y install vim nano aptitude wget bzip2 bash-completion git
 RUN apt-get -y build-dep libreoffice
 
 ### Make some additional system configurations.
-#COPY . /tmp/config/
-#RUN /tmp/config/sysconfig.sh
-#RUN rm -rf /tmp/config/
+COPY . /tmp/config/
+RUN /tmp/config/sysconfig.sh
+RUN rm -rf /tmp/config/
 
