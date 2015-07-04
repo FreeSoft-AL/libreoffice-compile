@@ -5,7 +5,7 @@
 
 ### This script assumes that the source code of LibreOffice is at /libreoffice
 ### and is already cloned with the command:
-###     git clone git://anongit.freedesktop.org/libreoffice/core 
+###     git clone git://anongit.freedesktop.org/libreoffice/core /libreoffice
 
 ### defaults
 default_git_branch=libreoffice-5-0
@@ -18,7 +18,7 @@ then
     git_branch=${1:-$default_git_branch}
     datestamp=$(date +%F | tr -d -)
     nohup_out=nohup-$datestamp-$git_branch.out
-    rm $nohup_out
+    rm -f $nohup_out
     nohup nice "$0" "calling_myself" "$@" > $nohup_out &
     sleep 1
     tail -f $nohup_out
@@ -43,7 +43,7 @@ start_time=$(date)
 set -e
 
 ### go to the source directory and get the right branch
-cd /root/libreoffice/
+cd /libreoffice/
 git_branch=${1:-$default_git_branch}
 time git checkout $git_branch
 
@@ -56,6 +56,7 @@ time make check
 end_time=$(date)
 
 ### print the start and end times
+set +x
 echo ================================================================
 echo "Start time: $start_time"
 echo "Start time: $end_time"

@@ -6,6 +6,6 @@
 ###     git clone git://anongit.freedesktop.org/libreoffice/core libreoffice
 
 docker create --name=libreoffice-sq --hostname=libreoffice-sq.fs.al \
-    -v $(pwd)/libreoffice:/root/libreoffice \
+    -v $(pwd)/libreoffice:/libreoffice \
     libreoffice-sq
 
