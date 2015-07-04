@@ -53,6 +53,7 @@ time make
 time make check
 
 ### create an archive with the compiled program
+set +e
 datestamp=$(date +%F | tr -d -)
 name="LO-$datestamp-$git_branch"
 cp -a /libreoffice/instdir $name
