@@ -52,6 +52,15 @@ time ./autogen.sh --without-help --without-myspell-dicts --with-lang="$lng"
 time make
 time make check
 
+### create an archive with the compiled program
+datestamp=$(date +%F | tr -d -)
+name="LO-$datestamp-$git_branch"
+cp -a /libreoffice/instdir $name
+tar cfz $name.tgz $name
+rm -f /compiled/$name.tgz
+mv $name.tgz /compiled/
+rm -rf $name
+
 ### get the end time
 end_time=$(date)
 

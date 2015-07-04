@@ -7,5 +7,6 @@
 
 docker create --name=libreoffice-sq --hostname=libreoffice-sq.fs.al \
     -v $(pwd)/libreoffice:/libreoffice \
+    -v $(pwd)/compiled:/compiled \
     libreoffice-sq
 

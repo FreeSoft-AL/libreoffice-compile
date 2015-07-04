@@ -35,4 +35,11 @@ tail -f nohup-20150704-libreoffice-4-4-4.out
 less -r nohup-20150704-libreoffice-4-4-4.out
 ```
 
-When the compilation ends up successfully, the new program is at `/libreoffice/instdir/program/soffice`.
+When the compilation ends successfully, the new program will be placed at `/compiled/LO-20150704-libreoffice-4-4-4.tgz`.
+You can run it like this:
+```
+mv compiled/LO-20150704-libreoffice-4-4-4.tgz .
+tar xfz LO-20150704-libreoffice-4-4-4.tgz
+LO-20150704-libreoffice-4-4-4/program/soffice &
+```
+
