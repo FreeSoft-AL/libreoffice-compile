@@ -24,10 +24,10 @@ sed -i /etc/ssh/sshd_config \
     -e 's/^UseLogin/#UseLogin/'
 
 sed -i /etc/ssh/sshd_config \
-    -e '/^### p2p config/,$ d'
+    -e '/^### libreoffice-sq config/,$ d'
 
 cat <<EOF >> /etc/ssh/sshd_config
-### p2p config
+### libreoffice-sq config
 Port 2211
 PermitRootLogin without-password
 PasswordAuthentication no
