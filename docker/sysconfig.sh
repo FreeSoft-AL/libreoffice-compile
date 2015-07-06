@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 ### customize the shell prompt
-echo libreoffice-sq > /etc/debian_chroot
+echo libreoffice-compile > /etc/debian_chroot
 sed -i /root/.bashrc \
     -e '/^#force_color_prompt=/c force_color_prompt=yes'
 PS1='\\n\\[\\033[01;32m\\]${debian_chroot:+($debian_chroot)}\\[\\033[00m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\e[32m\\]\\n==> \\$ \\[\\033[00m\\]'
@@ -24,10 +24,10 @@ sed -i /etc/ssh/sshd_config \
     -e 's/^UseLogin/#UseLogin/'
 
 sed -i /etc/ssh/sshd_config \
-    -e '/^### libreoffice-sq config/,$ d'
+    -e '/^### libreoffice-compile/,$ d'
 
 cat <<EOF >> /etc/ssh/sshd_config
-### libreoffice-sq config
+### libreoffice-compile
 Port 2211
 PermitRootLogin without-password
 PasswordAuthentication no

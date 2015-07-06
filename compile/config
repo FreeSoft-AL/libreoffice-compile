@@ -1,0 +1,2 @@
+git_branch=libreoffice-5-0    # git branch of the source code
+lang="sq"                     # used for the argument '--with-lang'

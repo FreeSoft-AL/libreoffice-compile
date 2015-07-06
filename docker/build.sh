@@ -2,5 +2,5 @@
 # this uses Dockerfile
 
 cd $(dirname $0)
-docker build --tag=libreoffice-sq .
+docker build --tag=libreoffice-compile .
 

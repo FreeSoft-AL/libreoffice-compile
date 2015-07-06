@@ -3,21 +3,18 @@
 ### https://wiki.ubuntu.com/BuildingLibreOffice and 
 ### https://wiki.documentfoundation.org/Development/How_to_build/localized
 
-### This script assumes that the source code of LibreOffice is at ./libreoffice-5-0/
-### and is already cloned with the command:
-###     git clone --branch=libreoffice-5-0 git://anongit.freedesktop.org/libreoffice/core libreoffice-5-0
+### got the directory of the script
+cd $(dirname $0)
 
-### defaults
-default_git_branch=libreoffice-5-0
-lng=sq
+### get the git_branch and lang
+source ./config
 
 ### make sure that the script is called with `nohup nice ...`
 if [ "$1" != "calling_myself" ]
 then
     # this script has *not* been called recursively by itself
-    git_branch=${1:-$default_git_branch}
     datestamp=$(date +%F | tr -d -)
-    nohup_out=$(dirname $0)/nohup-$git_branch-$datestamp.out
+    nohup_out=nohup-$git_branch-$datestamp.out
     rm -f $nohup_out
     nohup nice "$0" "calling_myself" "$@" > $nohup_out &
     sleep 1
@@ -40,15 +37,13 @@ start_time=$(date)
 set -e
 
 ### go to the source directory
-### and make sure that we have the right git branch
-cd $(dirname $0)
-git_branch=${1:-$default_git_branch}
+### and make sure that we have the latest version
 cd $git_branch/
 time git checkout $git_branch
 time git pull
 
 ### start the compilation
-time ./autogen.sh --without-help --without-myspell-dicts --with-lang="$lng"
+time ./autogen.sh --without-help --without-myspell-dicts --with-lang="$lang"
 time make
 time make check
 
