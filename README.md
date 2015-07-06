@@ -9,6 +9,11 @@ docker/create.sh
 docker start libreoffice-compile
 ```
 
+**Note:** An automatically built image is available also from DockerHub
+(https://registry.hub.docker.com/u/dashohoxha/libreoffice-compile/)
+So, instead of `docker/build.sh` you can also do `docker pull dashohoxha/libreoffice-compile`,
+which is bit faster. Modify `docker/create.sh` accordingly.
+
 To enter the container run `docker exec -it libreoffice-compile /bin/bash`.
 You can also login remotely with `ssh` (using the port `2211`).
 
