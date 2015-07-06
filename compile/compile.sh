@@ -17,7 +17,7 @@ then
     # this script has *not* been called recursively by itself
     git_branch=${1:-$default_git_branch}
     datestamp=$(date +%F | tr -d -)
-    nohup_out=nohup-$git_branch-$datestamp.out
+    nohup_out=$(dirname $0)/nohup-$git_branch-$datestamp.out
     rm -f $nohup_out
     nohup nice "$0" "calling_myself" "$@" > $nohup_out &
     sleep 1
