@@ -62,7 +62,7 @@ end_time=$(date)
 ### print the start and end times
 set +x
 echo ================================================================
-echo "Start time: $start_time"
-echo "Start time: $end_time"
+echo "Start time : $start_time"
+echo "End time   : $end_time"
 echo ================================================================
 
