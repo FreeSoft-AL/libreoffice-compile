@@ -31,9 +31,12 @@ git clone --branch=libreoffice-5-0 \
 
 ## Start compilation
 
-Edit `compile/config` and set the right git branch and language to be compiled.
-Then run `docker/compile.sh`. The compilation script will use `nohup`, so you can press `Ctrl+C`
-and the compilation will still continue on the background. Everything will be recorded in a log file,
+Edit `compile/config` and set the right git branch and language to be compiled. Then run:
+```
+docker exec -it libreoffice-compile /compile/compile.sh
+```
+The compilation script will use `nohup`, so you can press `Ctrl+C` and the compilation
+will still continue on the background. Everything will be recorded in a log file,
 and you can check it anytime like this:
 ```
 tail -f compile/nohup-libreoffice-5-0-20150706.out
