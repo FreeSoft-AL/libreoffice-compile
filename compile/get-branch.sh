@@ -11,7 +11,9 @@ cd $(dirname $0)
 branch=${1:-libreoffice-4-4-4}
 cd $branch
 
-time nice make clean
+time nice git reset
+time nice git checkout .
+time nice git clean -fdx
 time nice ./g checkout $branch
 
 git status
