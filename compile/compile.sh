@@ -39,8 +39,7 @@ set -e
 ### go to the source directory
 ### and make sure that we have the latest version
 cd $git_branch/
-time git checkout $git_branch
-time git pull
+time ./g pull -r
 
 ### start the compilation
 time ./autogen.sh --without-help --without-myspell-dicts --with-lang="$lang"
